@@ -2,6 +2,7 @@
 .vscode
 .expo
 .idea
+.env
 
 # dependencies
 node_modules/
