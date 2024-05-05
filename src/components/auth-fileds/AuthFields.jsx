@@ -23,6 +23,7 @@ const AuthFields = ({ control, isPassRequired }) => {
 			<Field
 				placeholder="Пароль"
 				control={control}
+				secureTextEntry
 				name="password"
 				rules={
 					isPassRequired
