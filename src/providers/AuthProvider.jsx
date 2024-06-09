@@ -21,7 +21,7 @@ const AuthProvider = ({ children }) => {
 				if (accessToken) {
 					const user = await getUserFromStorage();
 					if (isMounted) {
-						console.log("User from AuthProvider", user);
+						// console.log("User from AuthProvider", user);
 						setUser(user);
 					}
 				}

@@ -13,7 +13,7 @@ export const useCheckAuth = routeName => {
 	useEffect(() => {
 		const checkAccessToken = async () => {
 			const accessToken = await getAccessToken();
-			if (accessToken) {
+			if (!accessToken) {
 				try {
 					await getNewTokens();
 				} catch (e) {
