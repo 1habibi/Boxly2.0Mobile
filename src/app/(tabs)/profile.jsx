@@ -1,58 +1,51 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { Button } from "@ui-kitten/components";
+import { Button, Icon } from "@rneui/themed";
 import { useRouter } from "expo-router";
-import { deleteItemAsync, getItemAsync } from "expo-secure-store";
 import React from "react";
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { View, Text } from "react-native";
 
 import Loader from "@/src/components/Loader";
-import { useGetCurrentProfile } from "@/src/hooks/profile/useGetCurrentProfile";
+import ProfileForm from "@/src/components/profile-form/ProfileForm";
+import { useProfile } from "@/src/hooks/profile/useProfile";
 import { useAuth } from "@/src/hooks/useAuth";
 import { AuthService } from "@/src/services/auth/auth.service";
-import { ProfileService } from "@/src/services/profile/profile.service";
 
 const Profile = () => {
 	const { setUser } = useAuth();
 	const router = useRouter();
-	const { data, isLoading } = useGetCurrentProfile();
-	console.log("profile", data);
-	if (isLoading) return <Loader />;
+	const { profile, isProfileLoading, refetch } = useProfile();
+
+	if (isProfileLoading) return <Loader />;
+
 	return (
-		<View>
-			{/* <Pressable onPress={() => deleteItemAsync("access_token")}>
-				<Text className="text-white">Clear accessToken</Text>
-			</Pressable>
-			<Pressable onPress={() => deleteItemAsync("refresh_token")}>
-				<Text className="text-white">Clear refreshToken</Text>
-			</Pressable>
-			<Pressable
-				onPress={() =>
-					getItemAsync("access_token").then(data => console.log(data))
-				}
-			>
-				<Text className="text-white">Show accessToken</Text>
-			</Pressable>
-			<Pressable
-				onPress={() =>
-					getItemAsync("refresh_token").then(data => console.log(data))
-				}
-			>
-				<Text className="text-white">Show refreshToken</Text>
-			</Pressable> */}
-			<View>
-				<Text>{JSON.stringify(data)}</Text>
-				<Button>BUTTON</Button>
+		<View className="mt-10 mb-2 mx-2 h-full flex-1 justify-between">
+			<Text className="text-5xl font-bold">
+				Мой {"\n"}
+				<Text className="text-primary">профиль</Text>{" "}
+			</Text>
+			{profile ? (
+				<ProfileForm refetch={refetch} mode="update" profile={profile} />
+			) : (
+				<ProfileForm refetch={refetch} mode="create" />
+			)}
+			<View className="w-5/12">
+				<Button
+					onPress={() => {
+						AuthService.logout().then(() => {
+							setUser(null);
+							router.replace("/sign-in");
+						});
+					}}
+					containerStyle={{ borderRadius: 10 }}
+				>
+					Выйти
+					<Icon
+						iconStyle={{ marginLeft: 10 }}
+						color="#FFF"
+						name="exit-outline"
+						type="ionicon"
+					/>
+				</Button>
 			</View>
-			<Pressable
-				onPress={() => {
-					AuthService.logout().then(() => {
-						setUser(null);
-						router.replace("/sign-in");
-					});
-				}}
-			>
-				<Text className="top-6 text-xl">Выйти</Text>
-			</Pressable>
 		</View>
 	);
 };

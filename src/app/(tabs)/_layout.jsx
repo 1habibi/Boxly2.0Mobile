@@ -1,4 +1,5 @@
 import { AntDesign } from "@expo/vector-icons";
+import { Icon } from "@rneui/themed";
 import { Tabs } from "expo-router";
 import React from "react";
 
@@ -6,6 +7,7 @@ import { useAuth } from "@/src/hooks/useAuth";
 
 export default function TabLayout() {
 	const userData = useAuth();
+	console.log(userData);
 	return (
 		<Tabs
 			screenOptions={{
@@ -30,6 +32,35 @@ export default function TabLayout() {
 				}}
 			/>
 			<Tabs.Screen
+				name="orders"
+				options={{
+					tabBarLabel: "Мои заказы",
+					headerTitle: "Мои заказы",
+					tabBarIcon: ({ color }) => (
+						<AntDesign name="shoppingcart" size={24} color={color} />
+					),
+					href: userData.user ? "/orders" : null
+				}}
+			/>
+			<Tabs.Screen
+				name="courier-menu"
+				options={{
+					tabBarLabel: "Я - Курьер",
+					headerTitle: "Я - Курьер",
+					tabBarIcon: ({ color }) => (
+						<Icon
+							name="delivery-dining"
+							type="material"
+							size={24}
+							color={color}
+						/>
+					),
+					href: userData.user?.roles.includes("COURIER")
+						? "/courier-menu"
+						: null
+				}}
+			/>
+			<Tabs.Screen
 				name="(auth)"
 				options={{
 					tabBarLabel: "Вход",
@@ -44,7 +75,7 @@ export default function TabLayout() {
 				name="profile"
 				options={{
 					tabBarLabel: "Профиль",
-					headerTitle: "Главная",
+					headerTitle: "Профиль",
 					tabBarIcon: ({ color }) => (
 						<AntDesign name="user" size={24} color={color} />
 					),

@@ -1,12 +1,12 @@
-import { useAssets } from "expo-asset";
-import { Link, Redirect, usePathname, useRouter } from "expo-router";
-import { Image, Text, View } from "react-native";
+import { Redirect, usePathname } from "expo-router";
+import { Text, View } from "react-native";
 
+import HomeHero from "@/assets/images/home_hero.svg";
 import { useAuth } from "@/src/hooks/useAuth";
 import { useCheckAuth } from "@/src/providers/useCheckAuth";
 
 export default function Home() {
-	const { user, setUser } = useAuth();
+	const { user } = useAuth();
 	const navigation = usePathname();
 	useCheckAuth(navigation);
 
@@ -15,12 +15,16 @@ export default function Home() {
 	}
 
 	return (
-		<View className="flex-1 items-center justify-center">
-			<Image
-				className="w-[200px] h-[200px]"
-				source={require("@/assets/images/home_hero.png")}
-			/>
-			<Text className="size-xl">Лучшая доставка в вашем городе</Text>
+		<View className="h-full my-10 mx-2">
+			<View>
+				<Text className="text-5xl font-bold">
+					Лучшая {"\n"}
+					<Text className="text-primary">доставка</Text> в{"\n"}вашем городе
+				</Text>
+			</View>
+			<View className="h-full flex-1 justify-center items-center">
+				<HomeHero />
+			</View>
 		</View>
 	);
 }
