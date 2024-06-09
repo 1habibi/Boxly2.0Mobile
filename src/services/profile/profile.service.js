@@ -6,14 +6,13 @@ export const ProfileService = {
 			url: "/profile",
 			method: "GET"
 		});
-		console.log("response all profiles", response);
 		return response;
 	},
 	async getCurrentProfile() {
 		const response = await request({
 			url: `/profile/current`,
 			method: "GET"
-		}).then(console.log("response get getCurrentProfile", response));
+		});
 		return response;
 	},
 	async getProfileById(id) {
@@ -21,7 +20,6 @@ export const ProfileService = {
 			url: `/profile/${id}`,
 			method: "GET"
 		});
-		console.log("response get profile by user id", response);
 		return response;
 	},
 	async updateProfile(data, id) {
@@ -30,7 +28,6 @@ export const ProfileService = {
 			method: "PATCH",
 			data
 		});
-		console.log("response updateProfile", response);
 		return response;
 	},
 	async createProfile(data) {
@@ -39,7 +36,6 @@ export const ProfileService = {
 			method: "POST",
 			data
 		});
-		console.log("response createProfile", response);
 		return response;
 	}
 };

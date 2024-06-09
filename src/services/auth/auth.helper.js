@@ -28,5 +28,5 @@ export const saveToStorage = async data => {
 	await saveTokensStorage(data);
 	try {
 		return AsyncStorage.setItem("user", JSON.stringify(data.user));
-	} catch {}
+	} catch (e) {}
 };

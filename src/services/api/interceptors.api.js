@@ -14,14 +14,13 @@ const instance = axios.create({
 
 instance.interceptors.request.use(async config => {
 	const accessToken = await getAccessToken();
-	console.log("AccessToken form request", accessToken);
 	if (config && accessToken) {
 		config.headers.Authorization = accessToken;
 	}
 	return config;
 });
 
-instance.interceptors.request.use(
+instance.interceptors.response.use(
 	config => config,
 	async error => {
 		const originalRequest = error.config;
@@ -37,6 +36,7 @@ instance.interceptors.request.use(
 				await getNewTokens();
 				return instance.request(originalRequest);
 			} catch (e) {
+				console.log("error", errorCatch(e));
 				if (errorCatch(e) === "jwt expired") await deleteTokensStorage();
 			}
 		}

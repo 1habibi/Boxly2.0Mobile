@@ -15,10 +15,7 @@ export const getNewTokens = async () => {
 				}
 			}
 		);
-		console.log(response);
 		if (response.data.accessToken) await saveToStorage(response.data);
-
-		return response;
 	} catch (e) {
 		throw e;
 	}
