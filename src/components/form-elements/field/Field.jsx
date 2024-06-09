@@ -1,41 +1,49 @@
+import { Input, useTheme } from "@rneui/themed";
 import clsx from "clsx";
 import { Controller } from "react-hook-form";
 import { TextInput, View, Text } from "react-native";
 
 const Field = ({ control, rules, name, className, ...rest }) => {
+	const { theme } = useTheme();
 	return (
-		<Controller
-			control={control}
-			name={name}
-			rules={rules}
-			render={({
-				field: { value, onChange, onBlur },
-				fieldState: { error }
-			}) => (
-				<>
-					<View
-						className={clsx(
-							"w-full border border-dark rounded-xl pb-4 pt-2 px-3 my-1.5 bg-light",
-							error ? "border-red" : "border-transparent"
-						)}
-					>
-						<TextInput
+		<View className="w-full">
+			<Controller
+				control={control}
+				name={name}
+				rules={rules}
+				render={({
+					field: { value, onChange, onBlur },
+					fieldState: { error }
+				}) => (
+					<>
+						<Input
+							selectionColor={theme.colors.primary}
 							autoCapitalize="none"
 							onChangeText={onChange}
 							onBlur={onBlur}
 							value={(value || "").toString()}
-							className="text-base"
+							errorMessage={error ? error.message : ""}
+							errorStyle={{ fontSize: 12 }}
+							leftIconContainerStyle={{ padding: 5, marginRight: 5 }}
+							inputStyle={{ fontSize: 16 }}
+							labelStyle={{
+								color: "#111",
+								marginBottom: 5,
+								fontWeight: "900",
+								fontSize: 16
+							}}
+							inputContainerStyle={{
+								borderBottomWidth: 1.1,
+								borderWidth: 1.1,
+								borderRadius: 10,
+								borderColor: error ? "red" : null
+							}}
 							{...rest}
 						/>
-					</View>
-					{error && (
-						<Text className="text-[12px] text-customError">
-							{error.message}
-						</Text>
-					)}
-				</>
-			)}
-		/>
+					</>
+				)}
+			/>
+		</View>
 	);
 };
 

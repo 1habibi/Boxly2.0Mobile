@@ -1,3 +1,4 @@
+import { CheckBox, Icon, useTheme } from "@rneui/themed";
 import React from "react";
 
 import Field from "@/src/components/form-elements/field/Field";
@@ -5,6 +6,9 @@ import { validEmail } from "@/src/shared/email-regex";
 import { validPassword } from "@/src/shared/pass-regex";
 
 const AuthFields = ({ control, isPassRequired }) => {
+	const [checked, setChecked] = React.useState(true);
+	const toggleCheckbox = () => setChecked(!checked);
+	const { theme } = useTheme();
 	return (
 		<>
 			<Field
@@ -19,6 +23,7 @@ const AuthFields = ({ control, isPassRequired }) => {
 					}
 				}}
 				keyboardType="email-address"
+				leftIcon={<Icon name="mail-outline" type="ionicon" />}
 			/>
 			<Field
 				placeholder="Пароль"
@@ -37,7 +42,20 @@ const AuthFields = ({ control, isPassRequired }) => {
 							}
 						: { required: "Обязательное поле" }
 				}
+				leftIcon={<Icon name="lock1" type="antdesign" />}
 			/>
+			{isPassRequired && (
+				<CheckBox
+					checked={checked}
+					onPress={toggleCheckbox}
+					title="Вы курьер?"
+					containerStyle={{ backgroundColor: "transparent", marginTop: -20 }}
+					iconType="material-community"
+					checkedIcon="checkbox-marked"
+					uncheckedIcon="checkbox-blank-outline"
+					checkedColor={theme.colors.primary}
+				/>
+			)}
 		</>
 	);
 };
