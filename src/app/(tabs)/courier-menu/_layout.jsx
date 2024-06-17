@@ -1,6 +1,4 @@
-import { Redirect, Stack } from "expo-router";
-
-import { useAuth } from "@/src/hooks/useAuth";
+import { Stack } from "expo-router";
 
 export default function MyOrdersLayout() {
 	return (

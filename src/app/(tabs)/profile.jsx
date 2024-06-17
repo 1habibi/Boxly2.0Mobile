@@ -1,7 +1,6 @@
 import { Button, Icon } from "@rneui/themed";
 import { useRouter } from "expo-router";
-import React from "react";
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 
 import Loader from "@/src/components/Loader";
 import ProfileForm from "@/src/components/profile-form/ProfileForm";

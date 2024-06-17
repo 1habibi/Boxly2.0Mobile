@@ -1,5 +1,3 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
 import { BaseToast, default as RnToast } from "react-native-toast-message";
 
 const options = primaryColor => ({

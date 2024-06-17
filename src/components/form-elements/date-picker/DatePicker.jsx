@@ -1,8 +1,8 @@
 import RNDateTimePicker from "@react-native-community/datetimepicker";
-import { Icon, Text, useTheme } from "@rneui/themed";
+import { Icon, Text } from "@rneui/themed";
 import { useState } from "react";
 import { Controller } from "react-hook-form";
-import { View, Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 
 const DatePicker = ({ control, label, rules, name, className, ...rest }) => {
 	const [date, setDate] = useState(new Date());

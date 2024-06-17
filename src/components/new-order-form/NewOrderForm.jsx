@@ -1,7 +1,7 @@
 import { Divider } from "@rneui/base";
 import { Button, Icon, useTheme } from "@rneui/themed";
 import { LinearGradient } from "expo-linear-gradient";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ScrollView, View } from "react-native";
 

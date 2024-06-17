@@ -1,7 +1,6 @@
 import { AntDesign } from "@expo/vector-icons";
 import clsx from "clsx";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
 import { Pressable, Text } from "react-native";
 
 const CButton = ({ className, icon, children, ...rest }) => {

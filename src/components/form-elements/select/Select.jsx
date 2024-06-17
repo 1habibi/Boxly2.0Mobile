@@ -1,7 +1,7 @@
 import { Picker } from "@react-native-picker/picker";
 import { Icon, Text, useTheme } from "@rneui/themed";
 import { Controller } from "react-hook-form";
-import { View, Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 
 const Select = ({ control, label, rules, name, icon, items, ...rest }) => {
 	const { theme } = useTheme();

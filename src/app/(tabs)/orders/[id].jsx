@@ -1,22 +1,8 @@
-import {
-	Button,
-	ButtonGroup,
-	Dialog,
-	Divider,
-	Icon,
-	Rating,
-	useTheme
-} from "@rneui/themed";
+import { Button, Dialog, Divider, Icon, Rating, useTheme } from "@rneui/themed";
 import { useQueryClient } from "@tanstack/react-query";
 import { router, useLocalSearchParams } from "expo-router";
-import React, { useCallback, useState } from "react";
-import {
-	View,
-	Text,
-	ScrollView,
-	Image,
-	Linking
-} from "react-native";
+import { useCallback, useState } from "react";
+import { Image, Linking, ScrollView, Text, View } from "react-native";
 import { RefreshControl } from "react-native-gesture-handler";
 
 import Loader from "@/src/components/Loader";

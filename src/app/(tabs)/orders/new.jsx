@@ -1,7 +1,7 @@
 import { useTheme } from "@rneui/themed";
 import { useQueryClient } from "@tanstack/react-query";
-import React, { useCallback, useState } from "react";
-import { StyleSheet, View, Text, ScrollView } from "react-native";
+import { useCallback, useState } from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { RefreshControl } from "react-native-gesture-handler";
 
 import Loader from "@/src/components/Loader";

@@ -1,15 +1,14 @@
 import { Button, Icon, useTheme } from "@rneui/themed";
 import { useQueryClient } from "@tanstack/react-query";
 import { LinearGradient } from "expo-linear-gradient";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
-	StyleSheet,
-	View,
-	Text,
 	ScrollView,
+	StyleSheet,
+	Text,
 	TextInput,
 	TouchableOpacity,
-	Modal
+	View
 } from "react-native";
 import { RefreshControl } from "react-native-gesture-handler";
 import Toast from "react-native-toast-message";

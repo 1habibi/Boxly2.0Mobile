@@ -1,7 +1,6 @@
 import { AntDesign } from "@expo/vector-icons";
 import { Icon } from "@rneui/themed";
 import { Tabs } from "expo-router";
-import React from "react";
 
 import { useAuth } from "@/src/hooks/useAuth";
 

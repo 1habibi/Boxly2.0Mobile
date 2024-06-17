@@ -1,7 +1,7 @@
 import { Icon } from "@rneui/base";
 import { Button, Dialog } from "@rneui/themed";
-import React, { useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 const DeleteOrderButton = ({ handleDeleteOrderConfirm, ...rest }) => {
 	const [showDiaglog, setShowDiaglog] = useState(false);

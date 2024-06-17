@@ -1,6 +1,5 @@
 import { Button, Icon } from "@rneui/themed";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
 import { useForm } from "react-hook-form";
 import { ScrollView, View } from "react-native";
 

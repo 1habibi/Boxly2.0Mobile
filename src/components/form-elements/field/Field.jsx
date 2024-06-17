@@ -1,7 +1,6 @@
 import { Input, useTheme } from "@rneui/themed";
-import clsx from "clsx";
 import { Controller } from "react-hook-form";
-import { TextInput, View, Text } from "react-native";
+import { View } from "react-native";
 
 const Field = ({ control, rules, name, className, ...rest }) => {
 	const { theme } = useTheme();

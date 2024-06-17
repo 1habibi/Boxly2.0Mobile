@@ -1,7 +1,6 @@
 import { Button, useTheme } from "@rneui/themed";
 import * as ImagePicker from "expo-image-picker";
-import React from "react";
-import { StyleSheet, View, Text, ScrollView } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 import { useAuth } from "@/src/hooks/useAuth";
 import { uploadFile } from "@/src/utils/imagekit/imagekit";

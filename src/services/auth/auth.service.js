@@ -1,12 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Toast from "react-native-toast-message";
 
-import {
-	deleteTokensStorage,
-	saveTokensStorage,
-	saveToStorage
-} from "./auth.helper";
 import { request } from "../api/request.api";
+import { deleteTokensStorage, saveToStorage } from "./auth.helper";
 
 export const AuthService = {
 	async main(variant, email, password) {

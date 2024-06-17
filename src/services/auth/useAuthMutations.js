@@ -1,10 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
-import { isLoading } from "expo-font";
 import { useMemo } from "react";
 import Toast from "react-native-toast-message";
 
-import { AuthService } from "./auth.service";
 import { useAuth } from "../../hooks/useAuth";
+import { AuthService } from "./auth.service";
 
 export const useAuthMutations = reset => {
 	const { setUser } = useAuth();

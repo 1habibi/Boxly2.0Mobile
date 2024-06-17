@@ -1,6 +1,5 @@
 import * as SplashScreen from "expo-splash-screen";
-import React, { createContext, useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { createContext, useEffect, useState } from "react";
 
 import {
 	getAccessToken,

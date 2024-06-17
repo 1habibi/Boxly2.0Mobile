@@ -1,17 +1,15 @@
 import { Icon } from "@rneui/base";
 import { Button, Card, useTheme } from "@rneui/themed";
 import { useQueryClient } from "@tanstack/react-query";
-import { Link, useNavigation, useRouter } from "expo-router";
-import React, { useCallback, useEffect, useState } from "react";
+import { Link, useRouter } from "expo-router";
+import { useCallback, useEffect, useState } from "react";
 import {
-	StyleSheet,
-	View,
-	Text,
 	ScrollView,
+	StyleSheet,
+	Text,
 	TextInput,
-	Image,
 	TouchableOpacity,
-	Pressable
+	View
 } from "react-native";
 import { RefreshControl } from "react-native-gesture-handler";
 
